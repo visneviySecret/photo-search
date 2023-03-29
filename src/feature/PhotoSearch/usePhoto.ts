@@ -30,6 +30,7 @@ function usePhoto() {
       setLoading(false)
     } catch (e) {
       setError('Поиск преван, попробуйте другой запрос')
+      setLoading(false)
     }
   }
 
