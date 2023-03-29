@@ -29,7 +29,7 @@ function usePhoto() {
       setPictures(result)
       setLoading(false)
     } catch (e) {
-      setError(e + ': поиск преван, попробуйте другой запрос')
+      setError('Поиск преван, попробуйте другой запрос')
     }
   }
 
