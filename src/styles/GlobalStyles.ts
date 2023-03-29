@@ -1,4 +1,15 @@
 import { createGlobalStyle } from 'styled-components'
+import localFont from 'next/font/local'
+import { Color } from '@/utils/Conts'
+
+export const SFProDisplay = localFont({
+  src: [
+    {
+      path: '../../public/fonts/SF-Pro-Display-Regular.otf',
+      weight: '400',
+    },
+  ],
+})
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -8,19 +19,16 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     html,
-    body {
-      max-width: 100vw;
-      overflow-x: hidden;
+    body, ::placeholder {
+      font-family: ${SFProDisplay.style.fontFamily}, 'Inter';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
     }
     
     body {
-      color: rgb(var(--foreground-rgb));
-      background: linear-gradient(
-          to bottom,
-          transparent,
-          rgb(var(--background-end-rgb))
-        )
-        rgb(var(--background-start-rgb));
+      color: ${Color.GREY};
+      background: ${Color.WHITE}
     }
     
     a {
