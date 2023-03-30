@@ -23,7 +23,7 @@ function usePhoto() {
       if (searchedData.total === 0) return setError('Попробуйте другой запрос')
       const result = searchedData.results.map((picture: any) => ({
         id: picture.id,
-        url: picture.urls.regular,
+        url: picture.urls.small,
         alt: picture.alt_description,
       }))
       setPictures(result)
