@@ -44,7 +44,7 @@ function PhotoSearch() {
           handleSearch={handleSearch}
           errorMessage={error}
           handleReset={handleReset}
-          isLoaded={!!pictures.length}
+          isLoaded={!!pictures.length || loading}
         />
       </Wrapper>
 
