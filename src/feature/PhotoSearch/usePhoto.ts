@@ -19,8 +19,9 @@ function usePhoto() {
       const searchedData = await getPhotos(query, page).then(
         (response) => response.data,
       )
-      setTotalPages(searchedData.total)
-      if (searchedData.total === 0) return setError('Попробуйте другой запрос')
+      setTotalPages(searchedData.total_pages)
+      if (searchedData.total_pages === 0)
+        return setError('Попробуйте другой запрос')
       const result = searchedData.results.map((picture: any) => ({
         id: picture.id,
         url: picture.urls.small,
@@ -36,12 +37,14 @@ function usePhoto() {
 
   const handleSearch = () => {
     if (!query) return setError('Напишите запрос для поиска.')
+    setDisplayPictures([])
     fetchPhotos(query)
   }
 
   const handleReset = () => {
     setPage(1)
     setPictures([])
+    setDisplayPictures([])
   }
 
   const nextPage = () => {
