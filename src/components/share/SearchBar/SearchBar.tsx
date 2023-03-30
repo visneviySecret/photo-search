@@ -5,12 +5,10 @@ import TextField from '../../UI/TextField/TextField'
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
 `
 
 const Wrapper = styled.div<{ isLoaded: boolean }>`
   display: flex;
-  max-width: 500px;
   gap: 8px;
   margin: 0 ${({ isLoaded }) => !isLoaded && 'auto'};
   margin-top: ${({ isLoaded }) => !isLoaded && 'clamp(223px, 10vw, 276px)'};

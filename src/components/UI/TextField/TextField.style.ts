@@ -19,7 +19,7 @@ export const CrossWrapper = styled.div`
 `
 
 export const Input = styled.input`
-  width: clamp(205px, 70vw, 420px);
+  width: clamp(205px, 65vw, 420px);
   padding-block: 14.5px;
   padding-inline: 36px 10.5px;
   border-radius: 12px;

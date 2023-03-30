@@ -26,7 +26,6 @@ function TextField({
 }: TextFieldProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
-    console.log(value)
     onChange(value)
   }
 
