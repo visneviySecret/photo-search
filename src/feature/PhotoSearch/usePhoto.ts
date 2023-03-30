@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import useMeasure from 'react-use-measure'
 import { getPhotos } from '@/api/photo/getPhotos'
+import { usePrevious } from '@/hooks/usePrevious'
 
 function usePhoto() {
   const [query, setQuery] = useState('')
+  const [prevQuery, setPrevQuery] = useState('')
+  const [filter, setFilter] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [pictures, setPictures] = useState([])
@@ -38,10 +41,13 @@ function usePhoto() {
   const handleSearch = () => {
     if (!query) return setError('Напишите запрос для поиска.')
     handleReset()
+    setPrevQuery(query)
     fetchPhotos(query)
   }
 
   const handleReset = () => {
+    setPrevQuery('')
+    setFilter(false)
     setPage(1)
     setPictures([])
     setDisplayPictures([])
@@ -54,6 +60,7 @@ function usePhoto() {
 
   useEffect(() => {
     setError('')
+    if (pictures.length && prevQuery && query !== prevQuery) setFilter(true)
   }, [query])
 
   useEffect(() => {
@@ -71,6 +78,7 @@ function usePhoto() {
     query,
     setQuery,
     pictures,
+    filter,
     error,
     loading,
     displayPictures,

@@ -7,6 +7,7 @@ interface ListProps {
 }
 
 const Component = styled.div`
+  z-index: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(204px, 1fr));
   grid-gap: 8px;
