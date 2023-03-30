@@ -13,12 +13,20 @@ interface TextFieldProps {
   value: string
   onChange: (value: string) => void
   onReset: () => void
+  handleSearch: () => void
   errorMessage?: string
 }
 
-function TextField({ value, onChange, onReset, errorMessage }: TextFieldProps) {
+function TextField({
+  value,
+  onChange,
+  onReset,
+  handleSearch,
+  errorMessage,
+}: TextFieldProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
+    console.log(value)
     onChange(value)
   }
 
@@ -26,19 +34,28 @@ function TextField({ value, onChange, onReset, errorMessage }: TextFieldProps) {
     onChange('')
     onReset()
   }
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      handleSearch()
+    }
+  }
   return (
     <Wrapper>
       <Input
         onChange={handleChange}
         placeholder="Телефоны, яблоки, груши..."
+        onKeyDown={handleKeyDown}
         value={value}
       />
       <LensWrapper>
         <Lens />
       </LensWrapper>
-      <CrossWrapper onClick={handleReset}>
-        <Cross />
-      </CrossWrapper>
+      {value && (
+        <CrossWrapper onClick={handleReset}>
+          <Cross />
+        </CrossWrapper>
+      )}
       {errorMessage && <Error>{errorMessage}</Error>}
     </Wrapper>
   )

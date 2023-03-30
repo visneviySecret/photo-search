@@ -3,10 +3,15 @@ import styled from 'styled-components'
 import Button from '../../UI/Button/Button'
 import TextField from '../../UI/TextField/TextField'
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 const Wrapper = styled.div<{ isLoaded: boolean }>`
   display: flex;
+  max-width: 500px;
   gap: 8px;
-  max-width: 420px;
   margin: 0 ${({ isLoaded }) => !isLoaded && 'auto'};
   margin-top: ${({ isLoaded }) => !isLoaded && 'clamp(223px, 10vw, 276px)'};
   margin-bottom: clamp(16px, 5vw, 32px);
@@ -31,15 +36,18 @@ function SearchBar({
   errorMessage,
 }: SearchProps) {
   return (
-    <Wrapper isLoaded={isLoaded}>
-      <TextField
-        onChange={onChange}
-        onReset={handleReset}
-        value={value}
-        errorMessage={errorMessage}
-      />
-      <Button onClick={handleSearch} />
-    </Wrapper>
+    <Container>
+      <Wrapper isLoaded={isLoaded}>
+        <TextField
+          onChange={onChange}
+          onReset={handleReset}
+          value={value}
+          errorMessage={errorMessage}
+          handleSearch={handleSearch}
+        />
+        <Button onClick={handleSearch} />
+      </Wrapper>
+    </Container>
   )
 }
 

@@ -3,9 +3,9 @@ import { RotatingLines } from 'react-loader-spinner'
 import styled from 'styled-components'
 
 const LoaderWrapper = styled.div`
-  margin: 0 auto;
-  width: 36px;
-  padding-top: calc(50vh - 50px);
+  position: fixed;
+  left: calc(50% - 18px);
+  top: calc(50% - 15px);
 `
 
 function Loader() {

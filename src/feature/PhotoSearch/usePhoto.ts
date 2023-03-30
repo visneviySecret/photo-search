@@ -23,8 +23,11 @@ function usePhoto() {
         (response) => response.data,
       )
       setTotalPages(searchedData.total_pages)
-      if (searchedData.total_pages === 0)
-        return setError('Попробуйте другой запрос')
+      if (searchedData.total_pages === 0) {
+        setError('Попробуйте другой запрос')
+        setLoading(false)
+        return
+      }
       const result = searchedData.results.map((picture: any) => ({
         id: picture.id,
         url: picture.urls.small,
