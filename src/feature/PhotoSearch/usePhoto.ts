@@ -37,7 +37,7 @@ function usePhoto() {
 
   const handleSearch = () => {
     if (!query) return setError('Напишите запрос для поиска.')
-    setDisplayPictures([])
+    handleReset()
     fetchPhotos(query)
   }
 
