@@ -54,33 +54,35 @@ function PhotoSearch() {
       <Container>
         {filter && <BlackFilter />}
         <Wrapper>
-          <InfiniteScroll
-            next={nextPage}
-            hasMore={hasMore}
-            loader={loading && <Loader />}
-            dataLength={pictures.length}
-            style={{ width: '100%' }}
-          >
-            <ImageList>
-              {displayPictures.map((picture: any, index: number) => (
-                <Image
-                  ref={ref}
-                  key={index}
-                  src={picture.url}
-                  alt={picture.alt || 'image by request'}
-                  width={204}
-                  height={204}
-                  style={{
-                    objectFit: 'cover',
-                    width: '100%',
-                    height: width,
-                    borderRadius: '4px',
-                    border: `1px solid ${Color.LIGHT_GREY}`,
-                  }}
-                />
-              ))}
-            </ImageList>
-          </InfiniteScroll>
+          {pictures.length && (
+            <InfiniteScroll
+              next={nextPage}
+              hasMore={hasMore}
+              loader={loading && <Loader />}
+              dataLength={pictures.length}
+              style={{ width: '100%' }}
+            >
+              <ImageList>
+                {displayPictures.map((picture: any, index: number) => (
+                  <Image
+                    ref={ref}
+                    key={index}
+                    src={picture.url}
+                    alt={picture.alt || 'image by request'}
+                    width={204}
+                    height={204}
+                    style={{
+                      objectFit: 'cover',
+                      width: '100%',
+                      height: width,
+                      borderRadius: '4px',
+                      border: `1px solid ${Color.LIGHT_GREY}`,
+                    }}
+                  />
+                ))}
+              </ImageList>
+            </InfiniteScroll>
+          )}
           {loading && <Loader />}
         </Wrapper>
       </Container>
