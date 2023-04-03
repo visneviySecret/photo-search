@@ -23,7 +23,7 @@ function usePhoto() {
       )
       setTotalPages(searchedData.total_pages)
       if (searchedData.total_pages === 0) {
-        setError('Попробуйте другой запрос')
+        setError('Ничего не найдено')
         setLoading(false)
         return
       }
