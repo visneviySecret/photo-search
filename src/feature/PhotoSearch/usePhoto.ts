@@ -44,7 +44,7 @@ function usePhoto() {
     if (!query) return setError('Напишите запрос для поиска.')
     handleReset()
     setPrevQuery(query)
-    fetchPhotos(query)
+    // fetchPhotos(query)
   }
 
   const handleReset = () => {
