@@ -13,7 +13,7 @@ interface TextFieldProps {
   value: string
   onChange: (value: string) => void
   onReset: () => void
-  handleSearch: () => void
+  // handleSearch: () => void
   errorMessage?: string
 }
 
@@ -21,7 +21,7 @@ function TextField({
   value,
   onChange,
   onReset,
-  handleSearch,
+  // handleSearch,
   errorMessage,
 }: TextFieldProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

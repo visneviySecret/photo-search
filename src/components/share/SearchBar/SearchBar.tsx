@@ -41,9 +41,9 @@ function SearchBar({
           onReset={handleReset}
           value={value}
           errorMessage={errorMessage}
-          handleSearch={handleSearch}
+          // handleSearch={handleSearch}
         />
-        <Button onClick={handleSearch} />
+        {/* <Button onClick={handleSearch} /> */}
       </Wrapper>
     </Container>
   )
