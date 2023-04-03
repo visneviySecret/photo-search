@@ -5,9 +5,9 @@ import SearchBar from '@/components/share/SearchBar/SearchBar'
 import ImageList from '@/components/share/ImageList/ImageList'
 import {
   BlackFilter,
-  Container,
-  LoaderWrapper,
   Wrapper,
+  LoaderWrapper,
+  Container,
 } from './PhotoSearch.style'
 import Loader from '@/components/share/Loader/Loader'
 import InfiniteScroll from 'react-infinite-scroller'
@@ -45,7 +45,7 @@ function PhotoSearch() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Wrapper>
+      <Container>
         <SearchBar
           value={query}
           onChange={setQuery}
@@ -54,17 +54,16 @@ function PhotoSearch() {
           handleReset={handleReset}
           isLoaded={!!pictures.length || loading}
         />
-      </Wrapper>
-
-      <Container>
+      </Container>
+      <Wrapper>
         {filter && <BlackFilter />}
-        <Wrapper>
+        <Container>
           {!!pictures.length && (
             <InfiniteScroll
               pageStart={0}
               loadMore={nextPage}
               hasMore={hasMore}
-              loader={<Loader />}
+              loader={<div>loding...</div>}
               useWindow={true}
             >
               <ImageList>
@@ -93,8 +92,8 @@ function PhotoSearch() {
               <Loader />
             </LoaderWrapper>
           )}
-        </Wrapper>
-      </Container>
+        </Container>
+      </Wrapper>
     </>
   )
 }
