@@ -32,6 +32,7 @@ function usePhoto() {
         url: picture.urls.small,
         alt: picture.alt_description,
       }))
+      setPage((prev) => prev + 1)
       setPictures(result)
       setLoading(false)
     } catch (e) {
