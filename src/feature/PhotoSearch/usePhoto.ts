@@ -14,6 +14,7 @@ function usePhoto() {
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
   const [totalPages, setTotalPages] = useState(1)
+  const [modalImageUrl, setModalImageUrl] = useState('')
 
   const fetchPhotos = async (query: string) => {
     try {
@@ -29,7 +30,8 @@ function usePhoto() {
       }
       const result = searchedData.results.map((picture: any) => ({
         id: picture.id,
-        url: picture.urls.small,
+        urlSmall: picture.urls.small,
+        urlRegular: picture.urls.regular,
         alt: picture.alt_description,
       }))
       setPage((prev) => prev + 1)
@@ -63,6 +65,10 @@ function usePhoto() {
     }
   }
 
+  const handleModal = (value: string) => {
+    setModalImageUrl(value)
+  }
+
   useEffect(() => {
     setError('')
     if (!!pictures.length && prevQuery && query !== prevQuery) setFilter(true)
@@ -86,9 +92,11 @@ function usePhoto() {
     ref,
     width,
     hasMore,
+    handleModal,
     handleSearch,
     handleReset,
     nextPage,
+    modalImageUrl,
   }
 }
 

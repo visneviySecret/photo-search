@@ -13,6 +13,7 @@ import Loader from '@/components/share/Loader/Loader'
 import InfiniteScroll from 'react-infinite-scroller'
 import { Color } from '@/utils/Conts'
 import usePhoto from './usePhoto'
+import ModalPhoto from '@/components/Modal/ModalPhoto/ModalPhoto'
 
 function PhotoSearch() {
   const {
@@ -26,9 +27,11 @@ function PhotoSearch() {
     ref,
     width,
     hasMore,
+    handleModal,
     handleSearch,
     handleReset,
     nextPage,
+    modalImageUrl,
   } = usePhoto()
 
   return (
@@ -72,7 +75,7 @@ function PhotoSearch() {
                   <Image
                     ref={ref}
                     key={index}
-                    src={picture.url}
+                    src={picture.urlSmall}
                     alt={picture.alt || 'image by request'}
                     width={204}
                     height={204}
@@ -82,7 +85,9 @@ function PhotoSearch() {
                       height: width,
                       borderRadius: '4px',
                       border: `1px solid ${Color.LIGHT_GREY}`,
+                      cursor: 'pointer',
                     }}
+                    onClick={() => handleModal(picture.urlRegular)}
                   />
                 ))}
               </ImageList>
@@ -95,6 +100,9 @@ function PhotoSearch() {
           )}
         </Wrapper>
       </Container>
+      {modalImageUrl && (
+        <ModalPhoto url={modalImageUrl} handleModal={handleModal} />
+      )}
     </>
   )
 }
