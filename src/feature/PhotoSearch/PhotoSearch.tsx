@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import SearchBar from '@/components/share/SearchBar/SearchBar'
 import ImageList from '@/components/share/ImageList/ImageList'
 import { BlackFilter, Container, Wrapper } from './PhotoSearch.style'
 import Loader from '@/components/share/Loader/Loader'
+import InfiniteScroll from 'react-infinite-scroller'
 import { Color } from '@/utils/Conts'
-import InfiniteScroll from 'react-infinite-scroll-component'
 import usePhoto from './usePhoto'
 
 function PhotoSearch() {
@@ -54,13 +54,13 @@ function PhotoSearch() {
       <Container>
         {filter && <BlackFilter />}
         <Wrapper>
-          {pictures.length && (
+          {!!pictures.length && (
             <InfiniteScroll
-              next={nextPage}
+              pageStart={0}
+              loadMore={nextPage}
               hasMore={hasMore}
-              loader={loading && <Loader />}
-              dataLength={pictures.length}
-              style={{ width: '100%' }}
+              loader={<Loader />}
+              useWindow={true}
             >
               <ImageList>
                 {displayPictures.map((picture: any, index: number) => (

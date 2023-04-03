@@ -13,7 +13,7 @@ function usePhoto() {
   const [ref, { width }] = useMeasure()
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
-  const [totalPages, setTotalPages] = useState(0)
+  const [totalPages, setTotalPages] = useState(1)
 
   const fetchPhotos = async (query: string) => {
     try {
@@ -56,8 +56,10 @@ function usePhoto() {
   }
 
   const nextPage = () => {
-    setPage((prev) => prev + 1)
-    if (page >= totalPages) setHasMore(false)
+    fetchPhotos(query)
+    if (page >= totalPages) {
+      setHasMore(false)
+    }
   }
 
   useEffect(() => {
@@ -71,10 +73,6 @@ function usePhoto() {
       setDisplayPictures([])
     }
   }, [pictures])
-
-  useEffect(() => {
-    // if (page > 1) fetchPhotos(query)
-  }, [page])
 
   return {
     query,

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
 `
 
 export const Wrapper = styled.div`
@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   padding-inline: clamp(16px, 5vw, 80px);
   padding-top: clamp(10px, 2vw, 40px);
   margin: 0 auto;
+  overflow: auto;
 `
 
 export const BlackFilter = styled.div`
