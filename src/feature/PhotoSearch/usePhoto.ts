@@ -73,7 +73,7 @@ function usePhoto() {
   }, [pictures])
 
   useEffect(() => {
-    if (page > 1) fetchPhotos(query)
+    // if (page > 1) fetchPhotos(query)
   }, [page])
 
   return {
