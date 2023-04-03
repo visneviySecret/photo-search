@@ -1,3 +1,3 @@
-import { PhotoSearch } from "@/feature/PhotoSearch/PhotoSearch";
+import { PhotoSearch } from '@/feature/index'
 
 export default PhotoSearch

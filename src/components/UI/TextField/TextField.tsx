@@ -35,10 +35,12 @@ function TextField({
   }
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
+    alert(event.key)
     if (event.key === 'Enter') {
       handleSearch()
     }
   }
+
   return (
     <Wrapper>
       <Input
