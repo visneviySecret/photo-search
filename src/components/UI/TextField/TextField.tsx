@@ -35,9 +35,10 @@ function TextField({
   }
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.code === 'NumpadEnter' || event.code === 'Enter') {
-      handleSearch()
-    }
+    console.log(event)
+    // if (event.code === 'NumpadEnter' || event.code === 'Enter') {
+    //   handleSearch()
+    // }
   }
 
   return (
