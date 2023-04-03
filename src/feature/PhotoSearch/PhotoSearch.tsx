@@ -3,7 +3,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import SearchBar from '@/components/share/SearchBar/SearchBar'
 import ImageList from '@/components/share/ImageList/ImageList'
-import { BlackFilter, Container, Wrapper } from './PhotoSearch.style'
+import {
+  BlackFilter,
+  Container,
+  LoaderWrapper,
+  Wrapper,
+} from './PhotoSearch.style'
 import Loader from '@/components/share/Loader/Loader'
 import InfiniteScroll from 'react-infinite-scroller'
 import { Color } from '@/utils/Conts'
@@ -83,7 +88,11 @@ function PhotoSearch() {
               </ImageList>
             </InfiniteScroll>
           )}
-          {loading && <Loader />}
+          {loading && (
+            <LoaderWrapper>
+              <Loader />
+            </LoaderWrapper>
+          )}
         </Wrapper>
       </Container>
     </>

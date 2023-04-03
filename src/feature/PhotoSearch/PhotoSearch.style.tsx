@@ -26,3 +26,9 @@ export const BlackFilter = styled.div`
     left: 0vw;
   }
 `
+
+export const LoaderWrapper = styled.div`
+  position: fixed;
+  left: calc(50% - 18px);
+  top: calc(50% - 15px);
+`
