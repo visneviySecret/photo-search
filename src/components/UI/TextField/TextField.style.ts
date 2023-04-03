@@ -36,7 +36,8 @@ export const Input = styled.input`
 `
 export const Error = styled.span`
   position: absolute;
+  font-size: 14px;
   color: ${Color.RED};
-  bottom: -25px;
+  bottom: -18px;
   left: 20px;
 `

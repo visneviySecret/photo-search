@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  width: 100%;
+  position: relative;
+`
+export const Wrapper = styled.div`
   max-width: 1265px;
   padding-inline: clamp(16px, 5vw, 80px);
   padding-top: clamp(10px, 2vw, 40px);
   margin: 0 auto;
   overflow: auto;
-`
-
-export const Wrapper = styled.div`
-  position: relative;
-  width: 100%;
 `
 
 export const BlackFilter = styled.div`

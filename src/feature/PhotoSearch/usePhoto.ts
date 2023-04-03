@@ -35,7 +35,7 @@ function usePhoto() {
       setPictures(result)
       setLoading(false)
     } catch (e) {
-      setError('Поиск преван, попробуйте другой запрос')
+      setError('Попробуйте другой запрос')
       setLoading(false)
     }
   }
@@ -64,7 +64,7 @@ function usePhoto() {
 
   useEffect(() => {
     setError('')
-    if (pictures.length && prevQuery && query !== prevQuery) setFilter(true)
+    if (!!pictures.length && prevQuery && query !== prevQuery) setFilter(true)
   }, [query])
 
   useEffect(() => {
