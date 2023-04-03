@@ -13,7 +13,7 @@ interface TextFieldProps {
   value: string
   onChange: (value: string) => void
   onReset: () => void
-  // handleSearch: () => void
+  handleSearch: () => void
   errorMessage?: string
 }
 
@@ -21,7 +21,7 @@ function TextField({
   value,
   onChange,
   onReset,
-  // handleSearch,
+  handleSearch,
   errorMessage,
 }: TextFieldProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,10 +35,9 @@ function TextField({
   }
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    console.log(event)
-    // if (event.code === 'NumpadEnter' || event.code === 'Enter') {
-    //   handleSearch()
-    // }
+    if (event.code === 'NumpadEnter' || event.code === 'Enter') {
+      handleSearch()
+    }
   }
 
   return (

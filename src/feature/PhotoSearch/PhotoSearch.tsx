@@ -44,7 +44,7 @@ function PhotoSearch() {
         <SearchBar
           value={query}
           onChange={setQuery}
-          // handleSearch={handleSearch}
+          handleSearch={handleSearch}
           errorMessage={error}
           handleReset={handleReset}
           isLoaded={!!pictures.length || loading}

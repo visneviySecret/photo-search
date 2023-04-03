@@ -19,7 +19,7 @@ const Wrapper = styled.div<{ isLoaded: boolean }>`
 interface SearchProps {
   value: string
   onChange: (value: string) => void
-  // handleSearch: () => void
+  handleSearch: () => void
   handleReset: () => void
   isLoaded: boolean
   errorMessage?: string
@@ -28,7 +28,7 @@ interface SearchProps {
 function SearchBar({
   value,
   onChange,
-  // handleSearch,
+  handleSearch,
   handleReset,
   isLoaded,
   errorMessage,
@@ -41,9 +41,9 @@ function SearchBar({
           onReset={handleReset}
           value={value}
           errorMessage={errorMessage}
-          // handleSearch={handleSearch}
+          handleSearch={handleSearch}
         />
-        {/* <Button onClick={handleSearch} /> */}
+        <Button onClick={handleSearch} />
       </Wrapper>
     </Container>
   )
