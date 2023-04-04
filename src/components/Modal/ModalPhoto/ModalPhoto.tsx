@@ -23,11 +23,11 @@ function ModalPhoto({
         <Image
           src={url}
           alt={'image by request'}
-          width={204}
-          height={204}
+          width={2004}
+          height={2004}
           style={{
             objectFit: 'fill',
-            width: 'clamp(250px, 70vw, 500px)',
+            width: 'clamp(250px, 70vw, 900px)',
             height: 'auto',
             margin: '0 auto',
           }}
