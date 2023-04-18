@@ -37,11 +37,8 @@ function PhotoSearch() {
   return (
     <>
       <Head>
-        <title> Производство и внедрение инновационных</title>
-        <meta
-          name="description"
-          content="Производство и внедрение инновационных технологий"
-        />
+        <title>Photo search</title>
+        <meta name="description" content="Photo search by Unsplash api" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"

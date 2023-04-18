@@ -44,7 +44,7 @@ function TextField({
     <Wrapper>
       <Input
         onChange={handleChange}
-        placeholder="Телефоны, яблоки, груши..."
+        placeholder="Cars, nature, apples..."
         onKeyDown={handleKeyDown}
         value={value}
       />
