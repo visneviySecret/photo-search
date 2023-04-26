@@ -11,7 +11,7 @@ const ImageWrapper = styled.div`
   translate: -50% -50%;
 `
 
-function ModalPhoto({
+function ModalImage({
   url,
   setDisplayedImageIndex,
   displayNextImage,
@@ -36,8 +36,8 @@ function ModalPhoto({
           height={2004}
           style={{
             objectFit: 'fill',
-            width: 'clamp(250px, 100vw, 900px)',
-            height: 'auto',
+            width: 'auto',
+            maxHeight: 'clamp(500px, 70vw, 1200px)',
             margin: '0 auto',
           }}
           onClick={displayNextImage}
@@ -47,4 +47,4 @@ function ModalPhoto({
   )
 }
 
-export default ModalPhoto
+export default ModalImage

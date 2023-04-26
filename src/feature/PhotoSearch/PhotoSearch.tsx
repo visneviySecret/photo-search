@@ -13,7 +13,7 @@ import Loader from '@/components/share/Loader/Loader'
 import InfiniteScroll from 'react-infinite-scroller'
 import { Color } from '@/utils/Conts'
 import usePhoto from './usePhoto'
-import ModalPhoto from '@/components/Modal/ModalPhoto/ModalPhoto'
+import ModalImage from '@/components/Modal/ModalImage/ModalImage'
 
 function PhotoSearch() {
   const {
@@ -99,7 +99,7 @@ function PhotoSearch() {
         </Wrapper>
       </Container>
       {modalImageUrl && (
-        <ModalPhoto
+        <ModalImage
           url={modalImageUrl}
           setDisplayedImageIndex={setDisplayedImageIndex}
           displayNextImage={displayNextImage}
