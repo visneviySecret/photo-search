@@ -19,10 +19,12 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     html,
-    body, ::placeholder {
+    body, ::placeholder, button, input {
       font-family: ${SFProDisplay.style.fontFamily}, 'Inter';
       font-weight: 400;
       font-size: 16px;
+    }
+    body, ::placeholder, button {
       line-height: 19px;
     }
     
