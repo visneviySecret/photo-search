@@ -27,11 +27,12 @@ function PhotoSearch() {
     ref,
     width,
     hasMore,
-    handleModal,
+    setDisplayedImageIndex,
     handleSearch,
     handleReset,
     nextPage,
     modalImageUrl,
+    displayNextImage,
   } = usePhoto()
 
   return (
@@ -84,7 +85,7 @@ function PhotoSearch() {
                       border: `1px solid ${Color.LIGHT_GREY}`,
                       cursor: 'pointer',
                     }}
-                    onClick={() => handleModal(picture.urlRegular)}
+                    onClick={() => setDisplayedImageIndex(index)}
                   />
                 ))}
               </ImageList>
@@ -98,7 +99,11 @@ function PhotoSearch() {
         </Wrapper>
       </Container>
       {modalImageUrl && (
-        <ModalPhoto url={modalImageUrl} handleModal={handleModal} />
+        <ModalPhoto
+          url={modalImageUrl}
+          setDisplayedImageIndex={setDisplayedImageIndex}
+          displayNextImage={displayNextImage}
+        />
       )}
     </>
   )

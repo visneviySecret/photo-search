@@ -15,6 +15,9 @@ function usePhoto() {
   const [hasMore, setHasMore] = useState(true)
   const [totalPages, setTotalPages] = useState(1)
   const [modalImageUrl, setModalImageUrl] = useState('')
+  const [displayedImageIndex, setDisplayedImageIndex] = useState<null | number>(
+    null,
+  )
 
   const fetchPhotos = async (query: string) => {
     try {
@@ -65,9 +68,26 @@ function usePhoto() {
     }
   }
 
-  const handleModal = (value: string) => {
-    setModalImageUrl(value)
+  const setModalImage = (value: null | number) => {
+    let url: string = ''
+    displayPictures.forEach((picture: any, index) => {
+      if (index === value) {
+        url = picture.urlRegular
+      }
+    })
+    setModalImageUrl(url)
   }
+
+  const displayNextImage = () => {
+    setDisplayedImageIndex((prev) => {
+      if (prev !== null) return (prev += 1)
+      return null
+    })
+  }
+
+  useEffect(() => {
+    setModalImage(displayedImageIndex)
+  }, [displayedImageIndex])
 
   useEffect(() => {
     setError('')
@@ -92,11 +112,12 @@ function usePhoto() {
     ref,
     width,
     hasMore,
-    handleModal,
+    setDisplayedImageIndex,
     handleSearch,
     handleReset,
     nextPage,
     modalImageUrl,
+    displayNextImage,
   }
 }
 
