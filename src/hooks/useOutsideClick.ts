@@ -1,12 +1,4 @@
-import React, {
-  Ref,
-  useState,
-  useRef,
-  useEffect,
-  MutableRefObject,
-  ReactNode,
-  ReactEventHandler,
-} from 'react'
+import { useRef, useEffect } from 'react'
 
 export function useOutsideClick(callback: () => void) {
   const ref = useRef() as any
